@@ -3,18 +3,20 @@
 {% block title %}Hello ListHeroController!{% endblock %}
 
 {% block body %}
-<div class="list-group">
-    {% for result in heroesList %}                    
-                    
-                    <div class="card" style="width: 18rem;">
-  <img src="{{ result.thumbnail.path }}.{{ result.thumbnail.extension }}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Name : {{ result.name }}</h5>
-    <a href="{{ path('app_fiche', {'id': result.id} ) }}" class="btn btn-primary">Go somewhere</a>
-  </div>
+<div class="container">
+ <div class="row">
+    {% for result in heroesList %}
+    <div class="col-sm mt-5">                    
+        <div class="card" style="width: 18rem;">
+            <img src="{{ result.thumbnail.path }}.{{ result.thumbnail.extension }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Name : {{ result.name }}</h5>
+                <a href="{{ path('app_fiche', {'id': result.id} ) }}" class="btn btn-primary">Découvrir</a>
+            </div>
+        </div>
+        </div>
+    {% endfor %} 
 </div>
-                    
-                    {% endfor %} 
 </div>
             
 {% endblock %}
