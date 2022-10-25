@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Main{% endblock %}
+
+{% block body %}
+<div class="max-width">
+    <h2 class="title">Derniers supers héros à découvrir</h2>
+            <div class="carousel owl-carousel">
+                {% for result in results %}
+                    <div class="card">
+                        <div class="box">
+                        {% if 'image_not_available' in result.thumbnail.path %}
+                            <img src="{{ asset('assets/images/marvel-logo-png-transparent.png') }}" alt="">
+                        {% else %}
+                            <img src="{{ result.thumbnail.path }}.{{ result.thumbnail.extension }}" alt="">
+                        {% endif %}
+
+                            <div class="text">
+                            </div>
+                                <p>{{ result.name }}</p>
+                                <a class="link_projects" href="{{ path('app_fiche', {'id': result.id} ) }}" style="color: white;"><button type="button" class="btn btn-primary">Découvrir</button></a>
+                        </div>
+                    </div>
+                    {% endfor %} 
+            </div>
+</div>
+
+{% endblock %}

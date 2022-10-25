@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FicheController!{% endblock %}
+
+{% block body %}
+{% for fc in fiche_character %}
+<h1>Name : {{ fc.name }}</h1>
+<img src="{{ fc.thumbnail.path }}.{{ fc.thumbnail.extension }}" alt="">
+<p>Description : {{ fc.description }} </p>
+    Appears in : 
+    <ul>
+        {% for comics in fc.comics %}
+            {% for items in comics %}
+            <li>{{items.name}}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+{% endfor %}
+
+{% endblock %}
