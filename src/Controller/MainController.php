@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
-    #[Route('/', name: 'app_main')]
+    #[Route('/', name: 'home')]
     public function index()
     {
         $apiKey = '001ac6c73378bbfff488a36141458af2';
